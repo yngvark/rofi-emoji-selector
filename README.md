@@ -13,7 +13,7 @@ git clone https://github.com/yngvark/rofi-emoji-selector
 make combi
 ```
 
-:taco: Create a keyboard shortcut to
+:taco: TIP: Create a keyboard shortcut to
 
 ``` bash
 make -C ~/your/install-path/rofi-emoji-selector combi

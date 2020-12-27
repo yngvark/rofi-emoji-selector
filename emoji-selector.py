@@ -3,19 +3,21 @@ import json
 import os
 import subprocess
 import sys
+from pathlib import Path
 
 def print_emojis():
-    EMOJI_DICT_PATH = "emoji.json"
+    p = Path(os.path.abspath(__file__))
+    emojiFile = p.parent.joinpath("emoji.json")
 
     emojis = dict()
-    with open(EMOJI_DICT_PATH, 'r') as f:
+    with open(emojiFile, 'r') as f:
         emojis = json.loads(f.read().strip())
     list_output = ''
     for item in emojis:
         print(f'{item["emoji"]} {item["description"]}')
 
 def copy_stdin_clipboard():
-    CLIPBOARD_COMMAND = 'xsel --input --clipboard'.split()
+    clipboardCommand = 'xsel --input --clipboard'.split()
 
     choice = sys.argv[1]
 
@@ -25,7 +27,7 @@ def copy_stdin_clipboard():
     #with open("out.txt", 'w') as f:
     #    f.write(emoji)
 
-    subprocess.run(CLIPBOARD_COMMAND, input=emoji.encode('utf-8'))
+    subprocess.run(clipboardCommand, input=emoji.encode('utf-8'))
 
 
 if len(sys.argv) == 1:

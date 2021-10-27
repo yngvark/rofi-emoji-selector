@@ -5,16 +5,25 @@ import subprocess
 import sys
 from pathlib import Path
 
-def print_emojis():
-    p = Path(os.path.abspath(__file__))
-    emojiFile = p.parent.joinpath("emoji.json")
-
+def get_emojis_from_file(emojiFilename):
     emojis = dict()
-    with open(emojiFile, 'r') as f:
+    with open(emojiFilename, 'r') as f:
         emojis = json.loads(f.read().strip())
-    list_output = ''
+
+    return emojis
+
+
+def print_emojis(emojis):
     for item in emojis:
         print(f'{item["emoji"]} {item["description"]}')
+
+
+def print_all_emojis():
+    p = Path(os.path.abspath(__file__))
+
+    print_emojis(get_emojis_from_file(p.parent.joinpath("emoji_favourites.json")))
+    print_emojis(get_emojis_from_file(p.parent.joinpath("emoji.json")))
+
 
 def copy_stdin_clipboard():
     clipboardCommand = 'xsel --input --clipboard'.split()
@@ -31,6 +40,6 @@ def copy_stdin_clipboard():
 
 
 if len(sys.argv) == 1:
-    print_emojis()
+    print_all_emojis()
 else:
     copy_stdin_clipboard()

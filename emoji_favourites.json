@@ -1,0 +1,45 @@
+[
+    {
+        "aliases":
+        [
+            "ok_hand"
+        ],
+        "code": "U+1F44C",
+        "description": "OK hand",
+        "emoji": "👌",
+        "tags":
+        [
+            "hand",
+            "OK"
+        ]
+    },
+    {
+        "aliases":
+        [
+            "white_heavy_check_mark"
+        ],
+        "code": "U+2705",
+        "description": "white heavy check mark",
+        "emoji": "✅",
+        "tags":
+        [
+            "check",
+            "mark",
+            "white heavy check mark"
+        ]
+    },
+    {
+        "aliases":
+        [
+            "bug"
+        ],
+        "code": "U+1F41B",
+        "description": "bug",
+        "emoji": "🐛",
+        "tags":
+        [
+            "bug",
+            "insect"
+        ]
+    }
+]
